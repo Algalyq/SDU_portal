@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<section class="section container">
+    <div class="action-category">
+        <span>
+            <img src="{% static 'back_project/img/home.svg'  %}" alt="">
+            <a href="">Home page</a>
+        </span>
+
+        <span>
+            <img src="{% static 'back_project/img/transcript.png'  %}" alt="">
+            <a href="{% url 'parent_info' %}">Parent Contact </a>
+        </span>
+
+        
+        <span>
+            <img src="{% static 'back_project/img/graduate-hat.png'  %}" alt="">
+            <a href="{% url 'student_info' %}">Profile Students</a>
+        </span>
+
+        <span>
+            <img src="{% static 'back_project/img/info.svg'  %}" alt="">
+            <a href="{% url 'clubs' %}">Clubs</a>
+        </span>
+        
+        <span>
+            <img src="{% static 'back_project/img/contact.svg'  %}" alt="">
+            <a href="/add_user">Add Student </a>
+        </span>
+        <span>
+             <img src="{% static 'back_project/img/logout2.png'  %}" alt="">
+            <a href="/logout">Log out </a>
+        </span>
+
+     </div>
+
+
+<div class="action-square">
+           
+    <div class="square-item">
+        <span class="schedule">
+              <img src="{% static 'back_project/img/calendar.png'  %}" alt="">
+           
+            <i>
+                <h2>Total Student</h2>
+                  <p>{{ students.count }}</p>
+            </i>    
+    </span>
+        <span class="attendance">
+            <img src="{% static 'back_project/img/user.png'  %}" alt="">
+            <i>
+                <h2>Total teacher</h2>
+                <p>{{ teachers.count }}</p>
+            </i>
+      </span>
+      <span class="club">
+        <img src="{% static 'back_project/img/customer.png'  %}" alt="">
+        <i>
+            <h2>Total club</h2>
+            <p>{{ clubs.count }}</p>
+        </i>
+  </span>
+      
+    </div>
+
+    <div class="square-item">
+        <span class="payment">
+              <img src="{% static 'back_project/img/valid.png' %}" alt="">
+
+              <i>
+                  <h2>Total course</h2>
+                  <p>{{ courses.count }}</p>
+              </i>
+        </span>
+        <span class="event">
+            <img src="{% static 'back_project/img/event.png'  %}" alt="">
+            <i>
+                <h2>Total events</h2>
+                <p>{{ events.count }}</p>
+            </i>
+      </span>
+        <span class="grades">
+            <img src="{% static 'back_project/img/favorite.png' %}" alt="">
+
+            <i>
+                <h2>Total parent</h2>
+                <p>{{ parents.count }}</p>
+            </i>
+      </span>
+    </div>
+ </div>
+
+</section>
+
+{% endblock content %}

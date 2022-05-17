@@ -1,0 +1,158 @@
+{% extends 'back_project/main.html' %}
+{% load static %}
+
+
+    
+{% block content %}
+    <div class="above">
+        <h1 class = "stil">Homepage</h1>
+        <!-- <img class = "logo" src="" alt=""> -->
+    </div>
+    <div class="container">
+    <div class="pages">
+        <a class="tablinks" onclick="check(event, 'London')" id = "defaultOpen" class="tablinks"><p class="alu"><i class="fa fa-home"></i> 
+            Homepage</p></a>
+    </div>
+    <div class="pages">
+        <a href="{% url 'transcript' 4 %}">  <p class="alu"><i class="fa fa-graduation-cap"></i> Transcipt </p></a>
+  
+      </div>
+    <div class="pages">
+        <a href="{% url 'attendance' 4 %}" class="tablinks"><p class="alu"><i class="fa fa-check-square-o"></i> Electronic Attendance</p></a> 
+
+    </div>
+    <div class="pages">
+        <a href="{% url 'terms' %}"> <p class="alu"><i class="fa fa-newspaper-o "></i> Courses</p></a> 
+
+    </div>
+    <div class="pages">
+        <a class="tablinks" onclick="check(event, 'Paris')" ><p class="alu"><i class="fa fa-users"></i> Parents Contact</p></a>
+
+    </div>
+    <div class="pages">
+        <a href="/teacher">   <p class="alu"><i class="fa fa-graduation-cap"></i> Teachers Information    </p></a>
+
+    </div>
+    <div class="pages" id="logout">
+        
+        <a href="/logout">  <p class="alu"><i class="fa fa-reply" aria-hidden="true"></i>
+
+            Log out </p></a>
+     
+    </div>
+
+   
+   
+
+        <div class="rect" id="London">
+            <div class="miniContainer">
+                <p class = "font">Student id: {{ student.student_id }}</p>
+                <p class="font">Name: {{student.first_name}} </p>
+                <p class="font">Surname: {{student.last_name}}</p>
+          
+                <p class="font">Program: {{ proff_name.proff_name }}</p>
+                <p class="font">Grant type: SG[State grant]</p>
+                <img src="{{ student.image_stud.url }}" alt="" class="img_stud" width="110" height="120">
+            </div>        
+
+        </div>
+
+        <div class="Akto">
+            <div id = "Paris" class="rect paris">
+            
+                <div class="miniContainer">
+                {%  if parent_1.status == 'Father'  %}
+                    <p class="font">Name: {{ parent_1.first_name }} </p>
+                    <p class="font">Surname: {{ parent_1.last_name }}</p>
+                    <p class="font">Proff: {{ parent_1.proff }}</p>
+                    <p class="font">Phone: {{ parent_1.phone }}</p>
+                    <p class="font">Age: {{ parent_1.age }}</p>
+                    <p class="font">Gender: {{ parent_1.gender }}</p>
+                {% endif %}
+                </div>
+            <div class="miniContainer">
+                
+                {%  if parent_2.status == 'Mother'  %}
+                <p class="font">Name: {{ parent_2.first_name }} </p>
+                <p class="font">Surname: {{ parent_2.last_name }}</p>
+                <p class="font">Proffes: {{ parent_2.proff }}</p>
+                <p class="font">Phone: {{ parent_2.phone }}</p>
+                <p class="font">Age: {{ parent_2.age }}</p>
+                <p class="font">Gender: {{ parent_2.gender }}</p>
+            {% endif %}
+            </div>
+            </div>
+    
+                <div id= "Aktobe"  class="rect">
+                    <div  class="miniContainer">
+                        <p class="font">Student id: 123456789 </p>
+                        <p class="font">Name: Hello</p>
+                        <p class="font">Surname: Aibolatov</p>
+                        <p class="font">Program: InformationSystems</p>
+                        <p class="font">Grant type: SG[State grant]</p>
+                    </div>  
+                </div>
+        </div>
+
+        {% endblock content %}
+        <script>
+            function check(evt, cityname) {
+                if (cityname == "London")
+                {
+                    openCity(evt, "London");
+                }
+                else {
+                    openCity2(evt, "Paris");
+                    openCity3(evt, "Aktobe")
+                }
+        
+            }
+            function openCity(evt, cityName) {
+                var i, rect, tablinks;
+                rect = document.getElementsByClassName("rect");
+                for (i = 0; i < rect.length; i++) {
+                  rect[i].style.display = "none";
+                }
+                for (i = 0; i < rect.length; i++) {
+                  rect[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                  tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+              }
+        
+        
+              function openCity2(evt, cityName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                  tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                  tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+              }
+        
+                function openCity3(evt, cityName) {
+                var i, Akbo, tablinks;
+                Akbo = document.getElementsByClassName("Akbo");
+                for (i = 0; i < rect2.length; i++) {
+                    Akbo[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                  tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+              }
+        
+              
+        
+              

@@ -1,0 +1,23 @@
+.action-category{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.action-category span{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.action-category span>img{
+    width: 20px;
+    height: 20px;
+    filter: invert(100%) sepia(25%) saturate(4661%) hue-rotate(180deg) brightness(90%) contrast(94%);
+}
+
+.action-category span>a{
+    color: #04093E;
+    font-family: 'Ubuntu', sans-serif;
+    text-decoration: none;
+}

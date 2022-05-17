@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+{% for i in events %}
+<div class="container1">
+           
+            <div id = "London" class="rect2">
+                <div class="miniContainer">
+               
+                <h3 style="font-weight:600;">{{ club.club_name }}</h3>
+                <p class="font">Head: {{club.head}} </p>
+                <p class="font">Event: {{i.event_name}} </p> 
+                <p class="font">Activites: {{i.activites}}</p>
+                <p class="font">Start: {{i.starting_date}} {{ i.starting_time }}</p>
+                <p class="font">End: {{i.ending_date}} {{ i.ending_time }} </p>
+                
+                <img class="img2" src="{{ club.image_club.url }}" alt="">
+                </div>       
+            </div>
+        
+    </div>
+
+
+    {% endfor %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+   
+    
+    .rect2 {
+        width: 424px;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 26px 9px rgb(0 0 0 / 25%);
+        border-radius: 35px;
+        }
+    .font{
+    /* position: absolute; */
+    display: block;
+    margin-top: -3px;
+    /* width: 309px; */
+    /* height: 239px; */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+/* line-height: 47px; */
+
+color: #000000;
+}
+    .pages {
+    /* position: absolute; */
+    width: 297px;
+    height: 35px;
+    /* left: 203px; */
+    /* top: 319px; */
+
+    background: #FFFFFF;
+    box-shadow: 0px 0px 9px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 36px;
+    
+
+    }
+ 
+    .container{
+        margin-top: 210px;
+        margin-left: 90px;
+    }
+  
+    .miniContainer{
+        margin: auto;
+        margin-left: 35px;
+        margin-top: 10px;
+    }
+    .rect2{
+        transition: all 0.5s linear;
+    }
+
+    .container1{
+        display: flex;
+        justify-content: space-between;
+        justify-content: space-evenly;
+        margin-top: 20px;
+    }
+
+    .img2{
+        width: 90px;
+        height: 95px;
+        margin-left: 285px;
+        margin-top: -125px;
+        transition: all 0.5s linear;
+    }
+
+
+</style>
+{% endblock content %}

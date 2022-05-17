@@ -1,0 +1,454 @@
+
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+<!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet"> -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    body {
+        background-color: #172967;
+    }
+
+    .rect {
+        position: absolute;
+        width: 424px;
+        left: 777px;
+        top: 200px;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 26px 9px rgb(0 0 0 / 25%);
+        border-radius: 35px;
+    }
+
+    .rect2 {
+        width: 430px;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 26px 9px rgb(0 0 0 / 25%);
+        border-radius: 35px;
+        margin-left: -490px;
+    }
+   
+    .font {
+        /* position: absolute; */
+        display: block;
+        margin-top: -3px;
+        /* width: 309px; */
+        /* height: 239px; */
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 13px;
+        /* line-height: 47px; */
+
+        color: #000000;
+    }
+
+    .pages {
+        /* position: absolute; */
+        width: 297px;
+        height: 35px;
+        /* left: 203px; */
+        /* top: 319px; */
+
+        background: #FFFFFF;
+        box-shadow: 0px 0px 9px 8px rgba(0, 0, 0, 0.25);
+        border-radius: 36px;
+
+
+    }
+
+    .alu {
+        padding-left: 15px;
+        padding-top: 7px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        /* identical to box height */
+
+        text-decoration-line: none;
+
+        color: #000000;
+    }
+
+    .container {
+        position: relative;
+        left: 220px;
+        width: 100%;
+        margin: 100px 50px 50px 150px;
+        
+    }
+
+    .above {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 65px;
+        background: #FFFFFF;
+    }
+
+    .stil {
+        margin-right: 1090px;
+        font-size: 40px;
+    }
+
+    .under {
+        position: absolute;
+        width: 1920px;
+        height: 76px;
+        left: 0px;
+        top: 615px;
+        background: #FFFFFF;
+    }
+
+    .logo {
+        position: absolute;
+        width: 125px;
+        height: 119px;
+        left: 1767px;
+        top: -3px;
+
+        /* background: url(sdu_logo.png); */
+    }
+
+    .miniContainer {
+        margin: auto;
+        margin-left: 35px;
+        margin-top: 20px;
+    
+    }
+
+    .rect2 {
+        transition: all 0.5s linear;
+
+    }
+
+
+
+    .container3 .rect2:hover {
+        cursor: pointer;
+        width: 464px;
+        height: 220px;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 40px 9px rgb(0 0 0 / 25%);
+    }
+
+    .alu:hover {
+        cursor: pointer;
+        color: rgb(92, 92, 206);
+    }
+
+    .tabcontent {
+        width: 424px;
+        height: 206px;
+        left: 777px;
+        top: 105px;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 26px 9px rgb(0 0 0 / 25%);
+        border-radius: 35px;
+    }
+
+    .Akto {
+        display: block;
+        margin-top: 40px;
+        justify-content: space-between;
+    }
+
+    .container1 {
+        display: flex;
+        justify-content: space-between;
+        justify-content: space-evenly;
+        margin-top: 80px;
+        margin-left: 700px;
+        margin-bottom: 50px;
+    }
+
+    .container2 {
+        display: flex;
+        justify-content: space-between;
+        justify-content: space-evenly;
+        margin-top: 30px;
+    }
+
+    .container3 {
+        display: flex;
+        justify-content: space-between;
+        justify-content: space-evenly;
+        margin-top: 30px;
+    }
+
+    .custom-select {
+        margin: auto;
+        width: 100%;
+        margin-top: 35px;
+        border-radius: 15px;
+
+    }
+
+    .img2 {
+        width: 100px;
+        height: 120px;
+        margin-left: 250px;
+        margin-top: -150px;
+        transition: all 0.5s linear;
+    }
+
+    input {
+        border-radius: 1%;
+        border: 3px solid rgb(222, 222, 222);
+        margin-left: 660px;
+        margin-top: 10px;
+        width: 10%;
+    }
+#myChart{
+    width: 550px;
+    height: 500px;
+}
+
+    table,
+    td,
+    th {
+        border-bottom: 1px solid #ddd;
+        border-top-right-radius: 1px solid;
+        text-align: left;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-bottom: 1px;
+        width: 90%;
+    }
+
+    th,
+    td {
+        padding: 15px;
+        text-align: center;
+    }
+
+    
+
+    .bigContainer {
+        display: flex;
+        justify-content: space-between;
+    }
+    .button{
+        background-color: #f1f1f1; /* Green */
+        border: none;
+        color: rgb(13, 3, 72);
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 2px 2px;
+        position: relative;
+        top: 5px;
+        left: 4px;
+        cursor: pointer;
+        border-radius: 25%;
+    }
+    input{
+        width: 30%;
+        -webkit-transition: width 0.15s ease-in-out;
+        transition: width 0.15s ease-in-out;
+    }
+h3{
+    width: 1000px;
+    position: relative;
+    left: 330px;
+}
+</style>
+
+<body>
+
+    <div class="above">
+        <div class="stil">
+            <h3 style=" font-weight: 600;">Electronic Attendance - {{courses.course_id}} {{courses.course_code}} {{courses.course_name}}</h3>
+        </div>
+        <div class="inAbove" style="margin-top: 10px;"> <img src="logo.jpeg" alt="" width="70px" height="50px">
+        </div>
+    </div>
+    <!-- <form style=" display:flex; width:60%;" class="form-inline mr-auto">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="button" type="submit">Search</button>
+    </form> -->
+    <!-- Search form -->
+
+    <!-- piechart -->
+    <div class="bigContainer">
+        <div class="container">
+
+            <br>
+            <canvas id="myChart" width="500" height="400"></canvas>
+      
+
+            
+        </div>
+    <!-- piechart -->
+
+
+        <div class="container1">
+            <div id="London" class="rect2">
+
+                <div class="miniContainer">
+                    <table>
+                        <tr>
+                            <th>date</th>
+                            <th>hour</th>
+                            <th>attendance</th>
+                        </tr>
+                        {% for i in attendance %}
+                        <tr>
+                            <td>{{ i.date_att }}</td>
+                            <td>{{ i.time_att }}</td>
+                            {% if i.mark_att == '1' %}
+                            <td>                        <img title="permitted" src="{% static 'back_project/img/check.png' %}" width="16px" height="16px"></td>
+                            {% elif i.mark_att == '0' %}
+                            <td>                        <img title="permitted" src="{% static 'back_project/img/cross.png' %}" width="16px" height="16px"></td>
+                            {% else %}
+                            <td>                        <img title="permitted" src="{% static 'back_project/img/p.png' %}" width="16px" height="16px"></td>
+                            {% endif %}
+                        </tr>
+                       {% endfor %}
+                       
+                    </table>
+
+                    <!-- <p class="font">Name: Ali</p>
+                <p class="font">Surname: AIbolatov</p>
+                <p class="font">Position: PHD master</p>
+                <p class="font">Course: INF-313</p>
+                <img class="img2" src="IMG_3465.JPG" alt=""> -->
+
+                </div>
+
+            </div>
+            <!-- <div id="London" class="rect2">
+            <div class="miniContainer">
+                <p class="font">Name: Ali</p>
+                <p class="font">Surname: AIbolatov</p>
+                <p class="font">Position: PHD master</p>
+                <p class="font">Course: INF-313</p>
+                <img class="img2" src="IMG_3465.JPG" alt="">
+            </div> -->
+
+        </div>
+
+    </div>
+    <!-- 
+<div class="container2">      
+     <div id = "London" class="rect2">
+        <div class="miniContainer">
+            <p class="font">Name: Ali</p>
+            <p class="font">Surname: AIbolatov</p>
+            <p class="font">Position: PHD master</p>
+            <p class="font">Course: INF-313</p>
+            <img class="img2" src="IMG_3465.JPG" alt="">
+        </div>        
+     </div>
+
+        <div id = "London" class="rect2">
+            <div class="miniContainer">
+                <p class="font">Name: Ali</p>
+                <p class="font">Surname: AIbolatov</p>
+                <p class="font">Position: PHD master</p>
+                <p class="font">Course: INF-313</p>
+                <img class="img2" src="IMG_3465.JPG" alt="">
+            </div>        
+
+        </div> 
+</div>-->
+
+
+
+    </div>
+
+
+
+
+
+    </div>
+
+    <input type="hidden" value="{{ attendance_present }}" name="variable" id="pre" >
+
+    <input type="hidden" value="{{ attendance_absent }}" name="variable" id="abs" >
+    <input type="hidden" value="{{ attendance_permit }}" name="variable" id="per" >
+</body>
+
+
+<script>
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var present = document.getElementById("pre").value;
+    
+    var absent = document.getElementById("abs").value;
+    var perm = document.getElementById("per").value;
+    console.log(absent)
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Present', 'Absent','Permitted'],
+            datasets: [{
+                data: [present,absent, perm],
+                backgroundColor: ['#00e676','#e91e63', 'grey'],
+                borderWidth: 0.5 ,
+                borderColor: '#ddd'
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Attendance',
+                position: 'top',
+                fontSize: 32,
+                fontColor: '#fff',
+                padding: 20
+            },
+            legend: {
+                display: true,
+                position: 'bottom',
+                labels: {
+                    boxWidth: 36,
+                    fontColor: '#fff',
+                    padding: 20
+                }
+            },
+            tooltips: {
+                enabled: false
+            },
+            plugins: {
+                datalabels: {
+                    color: '#fff',
+                    textAlign: 'center',
+                    font: {
+                        lineHeight: 4.6
+                    },
+                    formatter: function(value, ctx) {
+                        return ctx.chart.data.labels[ctx.dataIndex] + '\n' + value + '%';
+                    }
+                }
+            }
+        }
+    });
+               </script>
+</html>
+
+
+
+
+
+

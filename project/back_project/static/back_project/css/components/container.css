@@ -1,0 +1,5 @@
+.container{
+    padding: 5% 10%;
+    display: flex;
+    justify-content: space-between;
+}

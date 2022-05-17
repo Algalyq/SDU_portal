@@ -1,0 +1,93 @@
+.action-square{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+}
+
+.square-item{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.square-item span>img{
+    width: 30px;
+    height: 30px;
+}
+
+.square-item span{
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    margin-left: 30px;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+
+.square-item i{
+    display: flex;
+    flex-direction: column;
+}
+
+.square-item i>h2{
+    font-size: 18px;
+    color: #04093E;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.form{
+    position: relative;
+    left: 15px;
+}
+
+.square-item i>p{
+    font-size: 15px;
+    margin-top: 10px;
+    color: #C9CFDE;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.schedule{
+    width: 30%;
+    height: 150px;
+    gap: 50px;
+    box-shadow: 1px -2px 17px 12px rgba(151, 156, 159, 0.14);
+}
+.grades{
+    width: 33%;
+    height: 150px;
+    gap: 50px;
+    box-shadow: 1px -2px 17px 12px rgba(151, 156, 159, 0.14);
+}
+
+.event{
+    width: 22%;
+}
+.club{
+    width: 24%;
+}
+.payment, .attendance .event{
+    box-shadow: 1px -2px 17px 12px rgba(151, 156, 159, 0.14);
+}
+.payment, .attendance .club{
+    box-shadow: 1px -2px 17px 12px rgba(151, 156, 159, 0.14);
+}
+
+.schedule img{
+    filter: invert(61%) sepia(54%) saturate(1112%) hue-rotate(312deg) brightness(108%) contrast(101%);
+}
+
+.payment img{
+    filter: invert(70%) sepia(37%) saturate(3128%) hue-rotate(186deg) brightness(103%) contrast(101%);
+}
+
+.grades img{
+    filter: invert(84%) sepia(38%) saturate(363%) hue-rotate(347deg) brightness(105%) contrast(102%);
+}
+
+.attendance img{
+    filter: invert(80%) sepia(11%) saturate(7082%) hue-rotate(189deg) brightness(93%) contrast(89%);
+}
