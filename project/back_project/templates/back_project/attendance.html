@@ -17,7 +17,7 @@
 {% regroup courses by semester_id as semester_list %}   
     <div class="above">
         <div class="stil"><h3 style=" font-weight: 600;">Attendance</h3></div>
-        <div class="inAbove" style="margin-top: 10px;"> <img src="img/sdu_logo.png" alt="SDU" width="70px" height="50px">
+        <div class="inAbove" style="margin-top: 10px;"> <img src="{% static 'back_project/img/sdu_logo.png' %}" alt="SDU" width="70px" height="50px">
         </div>
     </div>
         
@@ -26,13 +26,11 @@
             <form action="{% url 'attendance' 3 %}"  id="tema" method="POST" data-trm="{{num}}" >
     <select  id="semestersSelector" >
  
-      <option value="0">Select term</option>
-
-      <option value='1'>1</option>
-      <option value='2'>2</option>
-      <option value='3'>3</option>
-      <option value='4'>4</option>
-
+      <option value="">Select term</option>
+      {% for i in semester %}
+      <option value='{{i.semester_id}}'>{{i.semester_id}}</option>
+  
+        {% endfor %}
     </select> 
   
     <input id="ajaxSubmit" type="submit" value="Select"/>
@@ -44,7 +42,7 @@
     {% for city in courses1 %}
         <div id = "London" class="rect2">
             <div class="miniContainer">
-               <a href="{% url 'date_att' city.id %}" class="course"> <h3 style="font-weight:600;">{{ city.course_code }} {{ city.course_name }} </h3></a>
+               <a href="{% url 'date_att' city.id %}" class="course"> <h3 style="font-weight:600;">{{ city.course_code }} {{ city.course_id}} {{ city.course_name }} </h3></a>
                 {% for key,value in totals.items %}
                     {% if city.id == key %}
                     <p class="font">Total: {{value}}  (hours)</p>
@@ -82,7 +80,7 @@
     {% for city in courses2 %}
     <div id = "London" class="rect2">
         <div class="miniContainer">
-        <h3 style="font-weight:600;">{{ city.course_code }} {{ city.course_name }} </h3>
+            <a href="{% url 'date_att' city.id %}" class="course"> <h3 style="font-weight:600;">{{ city.course_code }} {{ city.course_id}} {{ city.course_name }} </h3> </a>
     {% for key,value in totals.items %}
         {% if city.id == key %}
             <p class="font">Total: {{value}}  (hours)</p>
@@ -120,7 +118,7 @@
         {% for city in courses3 %}
         <div id = "London" class="rect2">
             <div class="miniContainer">
-            <h3 style="font-weight:600;">{{ city.course_code }} {{ city.course_name }} </h3>
+                <a href="{% url 'date_att' city.id %}" class="course">   <h3 style="font-weight:600;">{{ city.course_code }} {{ city.course_id}} {{ city.course_name }} </h3> </a>
             {% for key,value in totals.items %}
             {% if city.id == key %}
                 <p class="font">Total: {{value}}  (hours)</p>
@@ -245,7 +243,12 @@ color: #000000;
         top: 615px;
         background: #FFFFFF;    
     }
+
+    h3{
+        width: 90%;
+    }
     .logo{
+
         position: absolute;
         width: 125px;
         height: 119px;
@@ -265,7 +268,7 @@ color: #000000;
     .rect2:hover{
         cursor: pointer;
             width: 444px;
-            height: 170px;
+            height: 200px;
             background: #FFFFFF;
             box-shadow: 0px 0px 40px 9px rgb(0 0 0 / 25%);
     }

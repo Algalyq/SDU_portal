@@ -316,9 +316,9 @@ h3{
                         <tr>
                             <td>{{ i.date_att }}</td>
                             <td>{{ i.time_att }}</td>
-                            {% if i.mark_att == '1' %}
+                            {% if i.mark_att == 1 %}
                             <td>                        <img title="permitted" src="{% static 'back_project/img/check.png' %}" width="16px" height="16px"></td>
-                            {% elif i.mark_att == '0' %}
+                            {% elif i.mark_att == 0 %}
                             <td>                        <img title="permitted" src="{% static 'back_project/img/cross.png' %}" width="16px" height="16px"></td>
                             {% else %}
                             <td>                        <img title="permitted" src="{% static 'back_project/img/p.png' %}" width="16px" height="16px"></td>

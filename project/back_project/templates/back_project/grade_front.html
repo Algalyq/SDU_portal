@@ -17,7 +17,7 @@
 {% regroup courses by semester_id as semester_list %}   
     <div class="above">
         <div class="stil"><h3 style=" font-weight: 600;">Grades</h3></div>
-        <div class="inAbove" style="margin-top: 10px;"> <img src="img/sdu_logo.png" alt="SDU" width="70px" height="50px">
+        <div class="inAbove" style="margin-top: 10px;"> <img src="{% static 'back_project/img/sdu_logo.png' %}" alt="SDU" width="70px" height="50px">
         </div>
     </div>
         
@@ -26,13 +26,11 @@
             <form action="{% url 'transcript' 3 %}"  id="tema" method="POST" data-trm="{{num}}" >
     <select  id="semestersSelector" >
  
-      <option value="0">Select term</option>
-
-      <option value='1'>1</option>
-      <option value='2'>2</option>
-      <option value='3'>3</option>
-      <option value='4'>4</option>
-
+      <option value="">Select term</option>
+        {% for i in semester %}
+      <option value='{{i.semester_id}}'>{{i.semester_id}}</option>
+  
+        {% endfor %}
     </select> 
   
     <input id="ajaxSubmit" type="submit" value="Select"/>
@@ -48,8 +46,8 @@
             <div id = "London" class="rect2">
                 <div class="miniContainer">
                 <h3 style="font-weight:600;">{{ city.course_code }}</h3>
-                <p class="font">Course: {{city.course_name}} </p>
-                <p class="font">Total: {{i.gpa}}  </p>
+                <p class="font pfont">Course: {{city.course_name}} </p>
+                <p class="font">Total: {{i.grade}}  </p>
                 <p class="font">Letter Grade: {{ i.mark }}</p>
                 <img class="img2" src="{{ city.img_course.url }}" alt="">
                 </div>       
@@ -72,7 +70,7 @@
                 <div class="miniContainer">
                 <h3 style="font-weight:600;">{{ city.course_code }}</h3>
                 <p class="font">Course: {{city.course_name}} </p>
-                <p class="font">Total: {{ i.gpa }}</p>
+                <p class="font">Total: {{ i.grade }}</p>
                 <p class="font">Letter Grade: {{ i.mark }}</p>
                 <img class="img2" src="{{ city.img_course.url }}" alt="">
                 </div>       
@@ -94,7 +92,7 @@
                     <div class="miniContainer">
                     <h3 style="font-weight:600;">{{ city.course_code }}</h3>
                     <p class="font">Course: {{city.course_name}} </p>
-                    <p class="font">Total: {{ country.grouper }}</p>
+                    <p class="font">Total: {{ i.grade }}</p>
                     <p class="font">Letter Grade: {{ i.mark }}</p>
                     <img class="img2" src="{{ city.img_course.url }}" alt="">
                     </div>       
@@ -186,6 +184,9 @@ color: #000000;
     .stil {
         margin-right: 1090px;
         font-size: 40px;
+    }
+    .pfont{
+        width: 70%;
     }
 
     .under{

@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+{% block content %}
+ 
+
+<section class="sen">
+ <div class="group">
+  <form action="" class="add" method="POST"  enctype="multipart/form-data">
+    {% csrf_token %}
+      <label for="" class="form-label" >First name</label>
+      <input type="text" required name="first_name" value="{{ parent.first_name }}" class="form-control">
+      <label for="" class="form-label" >Last name</label>
+      <input type="text" required name="last_name" value="{{ parent.last_name }}" class="form-control">
+      <label for="" class="form-label" >Age</label>
+      <input type="number" required name="age" value="{{ parent.age }}" class="form-control">
+      <label for="" class="form-label" >Phone</label>
+      <input type="number" required name="phone" value="{{ parent.phone }}" class="form-control">
+  
+      <label for="" class="form-label" >Proff</label>
+      <input type="text" required name="proff" value="{{ parent.proff }}" class="form-control">
+  
+
+       
+      <button type="submit">Enter</button>
+    </form>
+  </section>
+</div>
+
+   {% endblock %}

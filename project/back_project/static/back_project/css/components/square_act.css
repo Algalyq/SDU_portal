@@ -62,7 +62,16 @@
     gap: 50px;
     box-shadow: 1px -2px 17px 12px rgba(151, 156, 159, 0.14);
 }
-
+.attendance{
+    box-shadow: 1px -2px 17px 12px rgba(151, 156, 159, 0.14);
+}
+.club{
+    box-shadow: 1px -2px 17px 12px rgba(151, 156, 159, 0.14);
+}
+.sq2{
+    position: relative;
+    left: 120px;
+}
 .event{
     width: 22%;
 }
@@ -72,7 +81,7 @@
 .payment, .attendance .event{
     box-shadow: 1px -2px 17px 12px rgba(151, 156, 159, 0.14);
 }
-.payment, .attendance .club{
+.schedule, .attendance .club{
     box-shadow: 1px -2px 17px 12px rgba(151, 156, 159, 0.14);
 }
 

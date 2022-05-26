@@ -21,16 +21,16 @@
             <img src="{% static 'back_project/img/graduate-hat.png'  %}" alt="">
             <a href="{% url 'student_info' %}">Profile Students</a>
         </span>
+        <span>
+            <img src="{% static 'back_project/img/graduate-hat.png'  %}" alt="">
+            <a href="{% url 'teachers' %}">Teachers</a>
+        </span>
 
         <span>
             <img src="{% static 'back_project/img/info.svg'  %}" alt="">
             <a href="{% url 'clubs' %}">Clubs</a>
         </span>
         
-        <span>
-            <img src="{% static 'back_project/img/contact.svg'  %}" alt="">
-            <a href="/add_user">Add Student </a>
-        </span>
         <span>
              <img src="{% static 'back_project/img/logout2.png'  %}" alt="">
             <a href="/logout">Log out </a>
@@ -67,7 +67,7 @@
       
     </div>
 
-    <div class="square-item">
+    <div class="square-item sq2">
         <span class="payment">
               <img src="{% static 'back_project/img/valid.png' %}" alt="">
 
@@ -76,13 +76,7 @@
                   <p>{{ courses.count }}</p>
               </i>
         </span>
-        <span class="event">
-            <img src="{% static 'back_project/img/event.png'  %}" alt="">
-            <i>
-                <h2>Total events</h2>
-                <p>{{ events.count }}</p>
-            </i>
-      </span>
+
         <span class="grades">
             <img src="{% static 'back_project/img/favorite.png' %}" alt="">
 

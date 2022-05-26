@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+{% block content %}
+ 
+
+<section class="sen">
+ <div class="group">
+  <form action="" class="add" method="POST"  enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="" class="form-label" >Teacher ID:</label>
+    <input type="text" required name="teacher_id" value="{{ teacher.teacher_id }}" class="form-control">
+
+      <label for="" class="form-label" >First name:</label>
+      <input type="text" required name="first_name" value="{{ teacher.first_name }}" class="form-control">
+      <label for="" class="form-label" >Last name:</label>
+      <input type="text" required name="last_name" value="{{ teacher.last_name }}" class="form-control">
+      <label for="" class="form-label" >Email:</label>
+      <input type="email" required name="email" value="{{ teacher.email }}" class="form-control">
+  
+    
+      <label for="" class="form-label" >Age:</label>
+      <input type="number" required name="age" value="{{ teacher.age }}" class="form-control">
+      <label for="" class="form-label" >Phone:</label>
+      <input type="text" required name="phone" value="{{ teacher.phone }}" class="form-control">
+  
+      <label for="" class="form-label" >Qualification:</label>
+      <input type="text" required name="qualification" value="{{ teacher.qualification }}" class="form-control">
+  
+
+      <label for="" class="form-label" >Year of expr:</label>
+      <input type="number" required name="year_of_expr" value="{{ teacher.year_of_expr }}" class="form-control">
+      <label for="" class="form-label" >Date of birth:</label>
+      
+      <input type="text" required name="date_of_birth" value="{{ teacher.date_of_birth }}" class="form-control">
+  
+      <label for="" class="form-label" >Gender:</label>
+      <input type="text" required name="gender" value="{{ teacher.gender }}" class="form-control">
+      {% if teacher.image_teach %}
+      <img src="{{ teacher.image_teach.url }}" alt="">
+      {% endif %}
+      <label for="" class="form-label" >Image</label>
+      <input type="file" required name="image_teach"  class="form-control">
+    
+       
+      <button type="submit">Enter</button>
+    </form>
+  </section>
+</div>
+
+   {% endblock %}

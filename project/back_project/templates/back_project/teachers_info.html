@@ -77,15 +77,15 @@
      <div class="not_found">
     <div class="container2">
         
-        {% for city in teacher1 %}
+        {% for i in teacher1 %}
                
         <div id = "London" class="rect2">
             <div class="miniContainer">
-            <h3 style="font-weight:600;">{{ city.first_name }}</h3>
-            <p class="font">Course: {{city.last_name}} </p>
-            <p class="font">Position: {{ city.qualification }}</p>
-            <p class="font">Age: {{ city.age}}</p>
-            <img class="img2" src="{{ city.image_teach.url }}" alt="">
+            <h3 style="font-weight:600;">Name: {{ i.first_name }}</h3>
+            <p class="font">Surname: {{ i.last_name }} </p>
+            <p class="font">Position: {{ i.qualification }}</p>
+            <p class="font">Age: {{ i.age}}</p>
+            <img class="img2" src="{{ i.image_teach.url }}" alt="">
             </div>       
         </div>
 {% endfor %}
@@ -95,19 +95,18 @@
             </div>
     
         <div class="container3">      
-            {% for city in teacher2 %}
+            {% for i in teacher2 %}
                
-            <div id = "London" class="rect2">
-                <div class="miniContainer">
-                <h3 style="font-weight:600;">{{ city.first_name }}</h3>
-                <p class="font">Course: {{city.last_name}} </p>
-                <p class="font">Position: {{ city.qualification }}</p>
-                <p class="font">Age: {{ city.age}}</p>
-                <img class="img2" src="{{ city.image_teach.url }}" alt="">
-                </div>       
-            </div>
-    {% endfor %}
-
+        <div id = "London" class="rect2">
+            <div class="miniContainer">
+            <h3 style="font-weight:600;">Name: {{ i.first_name }}</h3>
+            <p class="font">Surname: {{ i.last_name }} </p>
+            <p class="font">Position: {{ i.qualification }}</p>
+            <p class="font">Age: {{ i.age}}</p>
+            <img class="img2" src="{{ i.image_teach.url }}" alt="">
+            </div>       
+        </div>
+{% endfor %}
                     
       
            </div>

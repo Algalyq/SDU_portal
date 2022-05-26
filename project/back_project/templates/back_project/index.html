@@ -30,8 +30,7 @@
 
     </div>
     <div class="pages">
-        <a href="/teacher">   <p class="alu"><i class="fa fa-graduation-cap"></i> Teachers Information    </p></a>
-
+        <a href="/teacher">   <p class="alu"><i class="fa fa-graduation-cap"></i> Teachers Information </p></a>
     </div>
     <div class="pages" id="logout">
         
@@ -50,7 +49,7 @@
                 <p class="font">Name: {{student.first_name}} </p>
                 <p class="font">Surname: {{student.last_name}}</p>
           
-                <p class="font">Program: {{ proff_name.proff_name }}</p>
+                <p class="font">Program: {{ student.proff}}</p>
                 <p class="font">Grant type: SG[State grant]</p>
                 <img src="{{ student.image_stud.url }}" alt="" class="img_stud" width="110" height="120">
             </div>        
@@ -59,39 +58,24 @@
 
         <div class="Akto">
             <div id = "Paris" class="rect paris">
-            
+                {% for i in student_has_parent %}
                 <div class="miniContainer">
-                {%  if parent_1.status == 'Father'  %}
-                    <p class="font">Name: {{ parent_1.first_name }} </p>
-                    <p class="font">Surname: {{ parent_1.last_name }}</p>
-                    <p class="font">Proff: {{ parent_1.proff }}</p>
-                    <p class="font">Phone: {{ parent_1.phone }}</p>
-                    <p class="font">Age: {{ parent_1.age }}</p>
-                    <p class="font">Gender: {{ parent_1.gender }}</p>
-                {% endif %}
+                  
+                    <p class="font">Name: {{ i.first_name }} </p>
+                    <p class="font">Surname: {{ i.last_name }}</p>
+                    <p class="font">Proff: {{i.proff }}</p>
+                    <p class="font">Phone: {{ i.phone }}</p>
+                    <p class="font">Age: {{ i.age }}</p>
+                    {% if i.gender == 2 %}
+                    <p class="font">Gender: Mother </p>
+                    {% else %}
+                    <p class="font">Gender: Father  </p>
+                    {% endif %}
                 </div>
-            <div class="miniContainer">
-                
-                {%  if parent_2.status == 'Mother'  %}
-                <p class="font">Name: {{ parent_2.first_name }} </p>
-                <p class="font">Surname: {{ parent_2.last_name }}</p>
-                <p class="font">Proffes: {{ parent_2.proff }}</p>
-                <p class="font">Phone: {{ parent_2.phone }}</p>
-                <p class="font">Age: {{ parent_2.age }}</p>
-                <p class="font">Gender: {{ parent_2.gender }}</p>
-            {% endif %}
-            </div>
+            {%  endfor %}
             </div>
     
-                <div id= "Aktobe"  class="rect">
-                    <div  class="miniContainer">
-                        <p class="font">Student id: 123456789 </p>
-                        <p class="font">Name: Hello</p>
-                        <p class="font">Surname: Aibolatov</p>
-                        <p class="font">Program: InformationSystems</p>
-                        <p class="font">Grant type: SG[State grant]</p>
-                    </div>  
-                </div>
+ 
         </div>
 
         {% endblock content %}

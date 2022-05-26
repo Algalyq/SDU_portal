@@ -37,19 +37,19 @@ Quali_Choices = [
 
 
 
-IS = 1
-CS = 2
-Mcm = 3
-MathSc = 4
-MathPed= 5
-TFL = 6
-Bioch = 7
+IS = "Information Systems"
+CS = "Computer Science"
+Mcm = "Math computer model"
+MathSc = "Math Science"
+MathPed= "MathPed"
+TFL = "TFL"
+Bioch = "Bioch"
 Proff_CHOICES = [
-        (IS, _("IS")),
-        (CS, _("CS")),
-        (Mcm, _("Mcm")),
-        (MathSc, _("MathSc")),
-        (MathPed, _("MathPed")),
+        (IS, _("Information Systems")),
+        (CS, _("Computer Science")),
+        (Mcm, _("Math computer model")),
+        (MathSc, _("Math Science")),
+        (MathPed, _("Math Ped")),
         (TFL, _("TFL")),
         (Bioch, _("Bioch")),
     ]   
@@ -104,6 +104,11 @@ class Club(models.Model):
     head = models.CharField(max_length=40)
     club_name = models.CharField(max_length=45,null=True)
     image_club = models.ImageField(upload_to="img/")
+    link_discord = models.CharField(max_length=1500)
+    
+    link_telegram = models.CharField(max_length=1500)
+    
+    link_instagram = models.CharField(max_length=1500)
     def __str__(self):
         return '%s' % (self.club_id)
 
@@ -129,7 +134,7 @@ class Teacher(models.Model):
     image_teach = models.ImageField(upload_to='img/',null=True)
     phone = models.CharField(max_length=40,null=True)
     age = models.IntegerField(null=True)
-    date_of_birth = models.DateField(null=True)
+    date_of_birth = models.DateField(null=True, blank=True, default='1970-01-01')
     qualification = models.CharField(choices=Quali_Choices, null=True, blank=True, max_length=25)
     year_of_expr = models.IntegerField(null=True)
     gender = models.PositiveSmallIntegerField(choices=GENDER_CHOICES, null=True, blank=True)
@@ -169,6 +174,7 @@ class Student(models.Model):
     phone = models.CharField(max_length=40,null=True)
     current_course = models.IntegerField(null=True)
     age = models.IntegerField(null=True)
+    proff = models.CharField(choices=Proff_CHOICES, max_length=50, null=True)
     date_of_birth = models.DateField(null=True)
     club_id = models.ForeignKey(Club, on_delete=models.CASCADE, null=True, db_column='club_id', blank=True)
     group_id = models.ForeignKey(Adviser_group, on_delete=models.CASCADE, null=True, db_column='group_id')
@@ -179,29 +185,21 @@ class Student(models.Model):
    
 
    
-class Student_has_parent(models.Model):
-    student_id = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)
-    parent_id = models.IntegerField(primary_key=True)
 
 class Parent(models.Model):
-    parent_id = models.ForeignKey(Student_has_parent, on_delete=models.CASCADE)
+    parent_id = models.IntegerField(primary_key=True)
     first_name = models.CharField(max_length=45, null=True)
     last_name = models.CharField(max_length=45, null=True)
     phone = models.CharField(max_length=45, null=True)
     proff = models.CharField(max_length=45,null=True)
     age = models.IntegerField(null=True)
-    student_id = models.IntegerField(null=True)
+    student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
     gender =models.PositiveSmallIntegerField(choices=GENDER_CHOICES, null=True, blank=True)
     status = models.CharField(choices=STATUS_CHOICES, null=True, max_length=25)
   
 
-    
 class Parent_status(models.Model):
-    parent_id = models.ForeignKey(Parent, on_delete=models.CASCADE)
-    status = models.PositiveSmallIntegerField(choices=STATUS_CHOICES, null=True, blank=True)
-
-    def __str__(self):
-        return '%s - %s' % (self.parent_id, self.status)
+    name = models.CharField(max_length=25)
 
 class Faculty(models.Model):
     faculty_id = models.IntegerField(primary_key=True)
@@ -241,7 +239,7 @@ class Course(models.Model):
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE, null=True)  
     course_code = models.CharField(max_length=25, choices=COURSE_CHOICES, null=True)
     course_id = models.IntegerField(null=True)
-    course_name = models.CharField(max_length=45, null=True)  
+    course_name = models.CharField(max_length=90, null=True)  
     proff_id = models.ForeignKey(Proff, on_delete=models.CASCADE) 
     semester_id = models.ForeignKey(Semester, on_delete=models.CASCADE)
     grade_id = models.IntegerField(null=True)

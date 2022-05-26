@@ -1,92 +1,189 @@
-{% extends 'base.html' %}
+    {% extends 'base.html' %}
 {% load static %}
 
 
 {% block content %}
 
-{% for i in clubs %}
-<div class="container1">
-           
-            <div id = "London" class="rect2">
-                <div class="miniContainer">
-               <a href="{% url 'events' i.club_id %}"> <h3 style="font-weight:600;">{{ i.club_name }}</h3></a>
-                <p class="font">Head: {{i.head}} </p>
-                
-                <img class="img2" src="{{ i.image_club.url }}" alt="">
-                </div>       
+<div class="container">
+    <div class="row">
+        {% for i in clubs%}
+        <div class="col-lg-4">
+            <div class="card p-0">
+                <div class="card-image">
+                    <img src="{{ i.image_club.url }}"
+                        alt="">
+                </div>
+                <div class="card-content d-flex flex-column align-items-center">
+                    <h4 class="pt-2" >{{ i.club_name }}</h4>
+                    <h5 class="pt-3">{{i.head}}</h5>
+
+                    <ul class="social-icons d-flex justify-content-center">
+                        <li style="--i:1">
+                            <a href="{{i.link_discord}}">
+                                <span class="fab fa-discord"></span>
+                            </a>
+                        </li>
+                        <li style="--i:2">
+                            <a href="{{i.link_telegram}}">
+                                <span class="fab fa-telegram"></span>
+                            </a>
+                        </li>
+                        <li style="--i:3">
+                            <a href="{{i.link_instagram}}">
+                                <span class="fab fa-instagram"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        
-    </div>
-
-
-    {% endfor %}
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+        </div>
+        {% endfor %}
    
-    
-    .rect2 {
-        width: 424px;
-        background: #FFFFFF;
-        box-shadow: 0px 0px 26px 9px rgb(0 0 0 / 25%);
-        border-radius: 35px;
-        }
-    .font{
-    /* position: absolute; */
-    display: block;
-    margin-top: -3px;
-    /* width: 309px; */
-    /* height: 239px; */
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 13px;
-/* line-height: 47px; */
 
-color: #000000;
+    </div>
+</div>
+
+<a href="/add_club" class="add_club"><img src="{%  static 'back_project/img/add.png' %}"  width="55px" height="55px" alt=""></a>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.fab{
+    color:rgb(46, 46, 183);
 }
-    .pages {
-    /* position: absolute; */
-    width: 297px;
-    height: 35px;
-    /* left: 203px; */
-    /* top: 319px; */
+.pt-2{
+    color:rgb(21, 21, 150);
+}
+.pt-3{
+    color:rgb(21, 21, 150);
+}
 
-    background: #FFFFFF;
-    box-shadow: 0px 0px 9px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 36px;
-    
 
-    }
- 
-    .container{
-        margin-top: 210px;
-        margin-left: 90px;
-    }
-  
-    .miniContainer{
-        margin: auto;
-        margin-left: 35px;
-        margin-top: 10px;
-    }
-    .rect2{
-        transition: all 0.5s linear;
-    }
 
-    .container1{
-        display: flex;
-        justify-content: space-between;
-        justify-content: space-evenly;
-        margin-top: 20px;
-    }
+/* Reseting */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    .img2{
-        width: 70px;
-        height: 75px;
-        margin-left: 270px;
-        margin-top: -75px;
-        transition: all 0.5s linear;
-    }
+body {
+    min-height: 100vh;
+}
+.add_club{
+    position: relative;
+    left: 1350px;
+    top: 95px;
+}
+
+.container{
+    position: relative;
+    right: 90px;
+}
+
+
+.container .row .col-lg-4 {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.card {
+    position: relative;
+    padding: 0;
+    margin: 0 !important;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 280px;
+    max-height: 340px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+}
+
+.card .card-image {
+    width: 100%;
+    max-height: 340px;
+}
+
+.card .card-image img {
+    width: 100%;
+    max-height: 340px;
+    object-fit: cover;
+}
+
+.card .card-content {
+    position: absolute;
+    bottom: -180px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    min-height: 140px;
+    width: 100%;
+    transition: bottom .4s ease-in;
+    box-shadow: 0 -10px 10px rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card:hover .card-content {
+    bottom: 0px;
+}
+
+.card:hover .card-content h4,
+.card:hover .card-content h5 {
+    transform: translateY(10px);
+    opacity: 1;
+}
+.row{
+    position: relative;
+    left: 160px;
+}
+.card .card-content h4,
+.card .card-content h5 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    transition: 0.8s;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-40px);
+    transition-delay: 0.2s;
+}
+
+.card .card-content h5 {
+    transition: 0.5s;
+    font-weight: 200;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.card .card-content .social-icons {
+    list-style: none;
+    padding: 0;
+}
+
+
+.card .card-content .social-icons li {
+    margin: 10px;
+    transition: 0.5s;
+    transition-delay: calc(0.15s * var(--i));
+    transform: translateY(50px);
+}
+
+
+.card:hover .card-content .social-icons li {
+    transform: translateY(20px);
+}
+
+.card .card-content .social-icons li a {
+    color: #fff;
+}
+
+.card .card-content .social-icons li a span {
+    font-size: 1.3rem;
+}
 
 
 </style>

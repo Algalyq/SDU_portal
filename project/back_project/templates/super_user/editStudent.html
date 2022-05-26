@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+{% block content %}
+ 
+
+<section class="sen">
+ <div class="group">
+  <form action="" class="add" method="POST"  enctype="multipart/form-data">
+    {% csrf_token %}
+      <label for="" class="form-label" >First name</label>
+      <input type="text" required name="first_name" value="{{ student.first_name }}" class="form-control">
+      <label for="" class="form-label" >Last name</label>
+      <input type="text" required name="last_name" value="{{ student.last_name }}" class="form-control">
+      <label for="" class="form-label" >Age</label>
+      <input type="number" required name="age" value="{{ student.age }}" class="form-control">
+      <label for="" class="form-label" >Image</label>
+       {% if student.image_stud %}
+       <img src="{{ student.image_stud.url }}" alt="">
+       {% endif %}
+        <label for="" class="form-label"  >Image</label>
+       <input type="file"  name="image" class="form-control">
+      <button type="submit">Enter</button>
+    </form>
+  </section>
+</div>
+
+   {% endblock %}
